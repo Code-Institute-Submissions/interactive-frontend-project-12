@@ -30,6 +30,7 @@ const strictButton = document.querySelector("#strict");//Triggers the strict mod
 const turnOnButton = document.querySelector("#on");//Initiates the game.
 
 
+
 // EVENT LISTENERS
 //Setthings buttons
 strictButton.addEventListener('click', function(event) {
@@ -60,7 +61,7 @@ startButton.addEventListener('click', function(event) {
   }
 });
 
-btnGreen.addEventListener('click', function(event) {
+btnGreen.onclick = () => {
   if (on) {
     playerOrder.push(1);
     check();
@@ -71,9 +72,9 @@ btnGreen.addEventListener('click', function(event) {
       }, 300);
     }
   }
-});
+};
 
-btnRed.addEventListener('click', function(event) {
+btnRed.onclick = () => {
   if (on) {
     playerOrder.push(2);
     check();
@@ -84,22 +85,22 @@ btnRed.addEventListener('click', function(event) {
       }, 300);
     }
   }
-});
+};
 
-btnYellow.addEventListener('click', function(event) {
+btnYellow.onclick = () => {
   if (on) {
     playerOrder.push(3);
     check();
     third();
     if (!win) {
-      setTimeout(function() {
+      setTimeout(function() { 
         clearColor();
       }, 300);
     }
   }
-});
+};
 
-btnBlue.addEventListener('click', function(event) {
+btnBlue.onclick = () => {
   if (on) {
     playerOrder.push(4);
     check();
@@ -110,7 +111,7 @@ btnBlue.addEventListener('click', function(event) {
       }, 300);
     }
   }
-});
+};
 
 
 //FUNCTIONS AND LOOP SEQUENCES
@@ -207,7 +208,7 @@ function btnLightColor() {
 function check() {
   if (playerOrder[playerOrder.length - 1] !== organization[playerOrder.length - 1])
     good = false;
-
+    
   if (playerOrder.length == 10 && good) {
     winGame();
   }
@@ -227,9 +228,10 @@ function check() {
         flash = 0;
         playerOrder = [];
         good = true;
-        intervalId = setInterval(gameTurn, 800);
+        intervalId = setInterval(gameTurn, 1000);
+        clearInterval(intervalId);
       }
-    }, 800);
+    }, 1000);
 
     noise = false;
   }
