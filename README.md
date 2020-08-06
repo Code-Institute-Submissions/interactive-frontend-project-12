@@ -315,10 +315,10 @@ let redBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.m
 let yellowBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');//audio for button yellow
 let greenBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');//audio for button green
 ```
-Moreover, with all the four buttons declared within the code, an event listener is made for each button to 
+Moreover, with all the four buttons declared within the code, an `onClick()` method is declared for each button to 
 represent its effect into the game.
 ```
-btnGreen.addEventListener('click', function(event) {
+btnGreen.onclick = () => {
   if (on) {
     playerOrder.push(1);
     check();
@@ -329,7 +329,7 @@ btnGreen.addEventListener('click', function(event) {
       }, 300);
     }
   }
-});
+};
 ```
 Using the ```btnGreen``` as a example you can see its functionality. Using conditionals the event describes 
 the player order index to be used with the game loop as ```1```, with the ```check()``` fucntion that gives the player choice verification
@@ -420,8 +420,10 @@ If you need to test the responsiveness of the website yourself you can use the s
 ### Unfixed bugs
 
  The game has a small bug in which so far I could not figure out how to fix. 
- If you press any of the four buttons and the start button more than once they begin flashing randomly,
- outside of the game logic needing to reload the page.
+Before, If you press any of the four buttons and the start button more than once the game buttons would begin flashing randomly,
+ outside of the game logic needing to reload the page. However, I've added a `clearInterval(intervalId);` at line `232` to fix this bug but with some small issues left.
+Although the click button was fixed there still some issues when clicking multiple times on buttons, like the sequence wont appear again although the game is not crashed.
+Tip [here](https://forum.freecodecamp.org/t/how-to-avoid-a-program-to-crash-when-a-button-is-pressed-multiple-times/283397/3?u=oliver_olivier) and [here](https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript)
 
 ## Deployment 
 
@@ -466,6 +468,8 @@ project groth are as follows:
 3. [W. Kałużny](https://medium.com/front-end-weekly/create-simon-game-in-javascript-d53b474a7416) For the UX.
 4. [sanwebe](https://www.sanwebe.com/2014/02/css3-buttons-examples-with-effects-animations) For the start button.
 5. [Samuel Thornton](https://codepen.io/sdthornton/pen/wBZdXq) For the box-shadow effects.
+6. [Randell Dawson](https://forum.freecodecamp.org/u/randelldawson/summary) for the `intervalId()` tip.
+7. [Ry](https://stackoverflow.com/users/707111/ry) for the `clearInterval()` code on line 232.
 
 This project was created by [Elias Prado](https://github.com/EliasOPrado).
 
