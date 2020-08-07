@@ -27,7 +27,7 @@ const btnYellow = document.querySelector("#btnYellow");//Button yellow
 const turnCounter = document.querySelector("#turn");//Score display.
 const startButton = document.querySelector("#startButton");//Initiates the game after power is on.
 const strictButton = document.querySelector("#strict");//Triggers the strict mode.
-const turnOnButton = document.querySelector("#on");//Initiates the game.
+const powerButton = document.querySelector("#on");//Initiates the game.
 
 
 
@@ -42,8 +42,8 @@ strictButton.addEventListener('click', function(event) {
   }
 });
 
-turnOnButton.addEventListener('click', function(event) {
-  if (turnOnButton.checked == true) {
+powerButton.addEventListener('click', function(event) {
+  if (powerButton.checked == true) {
     on = true;
     turnCounter.innerHTML = "-";
   }
@@ -56,16 +56,19 @@ turnOnButton.addEventListener('click', function(event) {
 });
 
 startButton.addEventListener('click', function(event) {
+  console.log("salman", "start clicked");
   if (on || win) {
     play(); 
   }
 });
 
 btnGreen.onclick = () => {
+  console.log("salman", "green clicked");
   if (on) {
     playerOrder.push(1);
     check();
     first();
+    clearTimeout();
     if (!win) {
       setTimeout(function() {
         clearColor();
@@ -75,6 +78,7 @@ btnGreen.onclick = () => {
 };
 
 btnRed.onclick = () => {
+  console.log("salman", "red clicked");
   if (on) {
     playerOrder.push(2);
     check();
@@ -88,6 +92,7 @@ btnRed.onclick = () => {
 };
 
 btnYellow.onclick = () => {
+  console.log("salman", "yellow clicked");
   if (on) {
     playerOrder.push(3);
     check();
@@ -101,6 +106,7 @@ btnYellow.onclick = () => {
 };
 
 btnBlue.onclick = () => {
+  console.log("salman", "Blue clicked");
   if (on) {
     playerOrder.push(4);
     check();
@@ -117,6 +123,9 @@ btnBlue.onclick = () => {
 //FUNCTIONS AND LOOP SEQUENCES
 
 function play() {
+  clearInterval();
+  clearTimeout();
+  console.log("salman", "Play function enter");
   win = false;
   organization = [];
   playerOrder = [];
@@ -125,6 +134,7 @@ function play() {
   turn = 1;
   turnCounter.innerHTML = 1;
   good = true;
+  // organization = [1,1,2,2,3,3,4,4,1,1]
   for (var i = 0; i < 10; i++) {
     organization.push(Math.floor(Math.random() * 4) + 1);
   }
@@ -134,9 +144,10 @@ function play() {
 }
 
 function gameTurn() {
-
+  console.log("salman", "gameTurn enter");
   on = false;
   if (flash == turn) {
+    console.log("salman", "clear gameTurn");
     clearInterval(intervalId);
     compTurn = false;
     clearColor();
@@ -190,6 +201,7 @@ function fourth() {
 
 //Color Normal state
 function clearColor() {
+  console.log("salman", "clearColor Enter");
   btnGreen.style.backgroundColor = "darkgreen";
   btnRed.style.backgroundColor = "darkred";
   btnYellow.style.backgroundColor = "goldenrod";
@@ -198,6 +210,7 @@ function clearColor() {
 
 //Color Lighter state
 function btnLightColor() {
+  console.log("salman", "btnLightColor Enter");
   btnGreen.style.backgroundColor = "lightgreen";
   btnRed.style.backgroundColor = "tomato";
   btnYellow.style.backgroundColor = "yellow";
@@ -206,16 +219,22 @@ function btnLightColor() {
 
 //player choice verification
 function check() {
-  if (playerOrder[playerOrder.length - 1] !== organization[playerOrder.length - 1])
+  console.log("salman", "check Enter");
+  if (playerOrder[playerOrder.length - 1] !== organization[playerOrder.length - 1] || organization[playerOrder.length - 1] === undefined){
     good = false;
+    console.log("salman", "good set to false");
+  }    
     
   if (playerOrder.length == 10 && good) {
     winGame();
   }
 
-  if (good == false) {
+  if (!good) {
+    console.log("salman", "enter not good if");
     btnLightColor();
     turnCounter.innerHTML = "NO!";
+      clearColor();
+      
     setTimeout(() => {
       turnCounter.innerHTML = turn;
       clearColor();
@@ -228,11 +247,11 @@ function check() {
         flash = 0;
         playerOrder = [];
         good = true;
-        intervalId = setInterval(gameTurn, 1000);
         clearInterval(intervalId);
+        intervalId = setInterval(gameTurn, 1000);
       }
     }, 1000);
-
+      
     noise = false;
   }
 
