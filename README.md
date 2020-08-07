@@ -419,10 +419,8 @@ If you need to test the responsiveness of the website yourself you can use the s
 
 ### Unfixed bugs
 
- The game has a small bug in which so far I could not figure out how to fix. 
-Before, If you press any of the four buttons and the start button more than once the game buttons would begin flashing randomly,
- outside of the game logic needing to reload the page. However, I've added a `clearInterval(intervalId);` at line `232` to fix this bug but with some small issues left.
-Although the click button was fixed there still some issues when clicking multiple times on buttons, like the sequence wont appear again although the game is not crashed.
+ The game had a small bug in which I could not figure out how to fix. 
+Before, If you press any of the four buttons and the start button more than once the game buttons would begin flashing randomly, outside of the game logic needing to reload the page. However, I've added a `clearInterval(intervalId);` to fix this bug.
 Tip [here](https://forum.freecodecamp.org/t/how-to-avoid-a-program-to-crash-when-a-button-is-pressed-multiple-times/283397/3?u=oliver_olivier) and [here](https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript)
 
 ## Deployment 
@@ -468,8 +466,13 @@ project groth are as follows:
 3. [W. Kałużny](https://medium.com/front-end-weekly/create-simon-game-in-javascript-d53b474a7416) For the UX.
 4. [sanwebe](https://www.sanwebe.com/2014/02/css3-buttons-examples-with-effects-animations) For the start button.
 5. [Samuel Thornton](https://codepen.io/sdthornton/pen/wBZdXq) For the box-shadow effects.
-6. [Randell Dawson](https://forum.freecodecamp.org/u/randelldawson/summary) for the `intervalId()` tip.
-7. [Ry](https://stackoverflow.com/users/707111/ry) for the `clearInterval()` code on line 232.
+
+## Acknowledgements
+
+1. [Randell Dawson](https://forum.freecodecamp.org/u/randelldawson/summary) for the `intervalId()` tip.
+2. [Ry](https://stackoverflow.com/users/707111/ry) for the `clearInterval()` code on line 232.
+3. Caleb_mentor, who led me throgh the project and convenced me I could fix different bugs in the code.
+4. All the Code Institute members who helped me on Slack and the tutor section. 
 
 This project was created by [Elias Prado](https://github.com/EliasOPrado).
 
