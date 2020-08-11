@@ -1,9 +1,9 @@
 
 //variables
-let blueBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');//audio for button blue
-let redBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');//audio for button red 
-let yellowBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');//audio for button yellow
-let greenBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');//audio for button green
+let blueBtnAudio = new Audio('assets/audio/blue.mp3');//audio for button blue
+let redBtnAudio = new Audio('assets/audio/red.mp3');//audio for button red 
+let yellowBtnAudio = new Audio('assets/audio/yellow.mp3');//audio for button yellow
+let greenBtnAudio = new Audio('assets/audio/green.mp3');//audio for button green
 
 let organization = []; //Flash sequence.
 let playerOrder = [];//Select sequence.
@@ -56,14 +56,14 @@ powerButton.addEventListener('click', function(event) {
 });
 
 startButton.addEventListener('click', function(event) {
-  console.log("salman", "start clicked");
+  
   if (on || win) {
     play(); 
   }
 });
 
 btnGreen.onclick = () => {
-  console.log("salman", "green clicked");
+  
   if (on) {
     playerOrder.push(1);
     check();
@@ -78,7 +78,7 @@ btnGreen.onclick = () => {
 };
 
 btnRed.onclick = () => {
-  console.log("salman", "red clicked");
+  
   if (on) {
     playerOrder.push(2);
     check();
@@ -92,7 +92,7 @@ btnRed.onclick = () => {
 };
 
 btnYellow.onclick = () => {
-  console.log("salman", "yellow clicked");
+  
   if (on) {
     playerOrder.push(3);
     check();
@@ -106,7 +106,7 @@ btnYellow.onclick = () => {
 };
 
 btnBlue.onclick = () => {
-  console.log("salman", "Blue clicked");
+  
   if (on) {
     playerOrder.push(4);
     check();
@@ -125,7 +125,7 @@ btnBlue.onclick = () => {
 function play() {
   clearInterval();
   clearTimeout();
-  console.log("salman", "Play function enter");
+  
   win = false;
   organization = [];
   playerOrder = [];
@@ -144,10 +144,10 @@ function play() {
 }
 
 function gameTurn() {
-  console.log("salman", "gameTurn enter");
+  
   on = false;
   if (flash == turn) {
-    console.log("salman", "clear gameTurn");
+    
     clearInterval(intervalId);
     compTurn = false;
     clearColor();
@@ -201,7 +201,7 @@ function fourth() {
 
 //Color Normal state
 function clearColor() {
-  console.log("salman", "clearColor Enter");
+  
   btnGreen.style.backgroundColor = "darkgreen";
   btnRed.style.backgroundColor = "darkred";
   btnYellow.style.backgroundColor = "goldenrod";
@@ -210,7 +210,7 @@ function clearColor() {
 
 //Color Lighter state
 function btnLightColor() {
-  console.log("salman", "btnLightColor Enter");
+  
   btnGreen.style.backgroundColor = "lightgreen";
   btnRed.style.backgroundColor = "tomato";
   btnYellow.style.backgroundColor = "yellow";
@@ -219,10 +219,10 @@ function btnLightColor() {
 
 //player choice verification
 function check() {
-  console.log("salman", "check Enter");
+  
   if (playerOrder[playerOrder.length - 1] !== organization[playerOrder.length - 1] || organization[playerOrder.length - 1] === undefined){
     good = false;
-    console.log("salman", "good set to false");
+    
   }    
     
   if (playerOrder.length == 10 && good) {
@@ -230,7 +230,7 @@ function check() {
   }
 
   if (!good) {
-    console.log("salman", "enter not good if");
+    
     btnLightColor();
     turnCounter.innerHTML = "NO!";
       clearColor();
