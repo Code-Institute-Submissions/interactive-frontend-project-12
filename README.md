@@ -25,7 +25,12 @@
 6. [Technologies](#Technologies)
 7. [Testing](#Testing)
    1. [How the website was tested?](#How-the-website-was-tested)
-   2. [Unfixed bugs](#Unfixed-bugs)
+      1. [Manual testing](#Manual-testing)
+         1. [Normal game](#Normal-game)
+         2. [Strict game](#Strict-game)
+         3. [Responsiveness-test](#Responsiveness-test)
+   2. [Testing tools](#Testing-tools)
+   3. [Unfixed bugs](#Unfixed-bugs)
 8. [Deployment](#Deployment)
    1. [Steps I used to deploy](#Steps-I-used-to-deploy)
 9. [Credits](#Credits)
@@ -309,11 +314,10 @@ const btnRed = document.querySelector("#btnRed");//Button red
 const btnYellow = document.querySelector("#btnYellow");//Button yellow
 ```
 ```
-//variables for each color.
-let blueBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');//audio for button blue
-let redBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');//audio for button red 
-let yellowBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');//audio for button yellow
-let greenBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');//audio for button green
+let blueBtnAudio = new Audio('assets/audio/blue.mp3');//audio for button blue
+let redBtnAudio = new Audio('assets/audio/red.mp3');//audio for button red 
+let yellowBtnAudio = new Audio('assets/audio/yellow.mp3');//audio for button yellow
+let greenBtnAudio = new Audio('assets/audio/green.mp3');//audio for button green
 ```
 Moreover, with all the four buttons declared within the code, an `onClick()` method is declared for each button to 
 represent its effect into the game.
@@ -396,6 +400,24 @@ The work was tested in many different real and virtual screens.
 I used the Chrome developer tool and Responsinator.com to test the website on different screens and my iPhone 6 to know whether the outcomes were working. I tried different websites to try different screens, however not having the real outcome.
 I had some issues to fix such as @media queries with (max/min-device-width) that weren't allowing media queries to be accepted to these websites. Therefore, I changed these media queries from (max/min-device-width) to (max/min-width) and the changes I made worked well appearing all of the changes with no issues.
 
+### Manual testing
+
+#### Normal game
+
+- Click on the power checkbox and press the button start;
+- Wait until the game start flashing its buttons and follow the sequence;
+- During the player turn click multiple times on one of the four button;
+- Check if the game crashes, flashing multiple colors out of order.
+
+#### Srict game
+
+- Re-fresh the page;
+- Click on the power checbox and click on strict checkbox;
+- Press the start button and follow the sequece;
+- Check if the game sequence resets when you press a wrong button out of the game sequence.
+
+#### Responsiveness test
+
 If you need to test the responsiveness of the website yourself you can use the same tools I used:
 
 -  Chrome Developer Tools:
@@ -407,6 +429,8 @@ If you need to test the responsiveness of the website yourself you can use the s
     1. follow the link responsinator.com;
     2. copy the website link (URL) and paste within the field and click go.
     3. The webpage will be displayed in different screens already not needing to change as same as GCDT.
+    
+ ### Testing tools
 
 - Using different approaches and tools of testing.
 
