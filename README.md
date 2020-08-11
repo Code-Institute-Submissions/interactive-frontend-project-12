@@ -178,10 +178,10 @@ Therefore, each of the buttons are assigned to a variable then used in different
 functions to give its own functionality.
 
 ```
-let blueBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3');//audio for button blue
-let redBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound2.mp3');//audio for button red 
-let yellowBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound3.mp3');//audio for button yellow
-let greenBtnAudio = new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3');//audio for button green
+let blueBtnAudio = new Audio('assets/audio/blue.mp3');//audio for button blue
+let redBtnAudio = new Audio('assets/audio/red.mp3');//audio for button red 
+let yellowBtnAudio = new Audio('assets/audio/yellow.mp3');//audio for button yellow
+let greenBtnAudio = new Audio('assets/audio/green.mp3');//audio for button green
 ```
 
 ### Functionality 
